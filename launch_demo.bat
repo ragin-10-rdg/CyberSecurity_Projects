@@ -1,0 +1,2 @@
+python run_all_demos.py
+pause

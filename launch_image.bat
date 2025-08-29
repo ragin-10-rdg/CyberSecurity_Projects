@@ -1,0 +1,2 @@
+python ImageEncryption/image_encryption.py
+pause

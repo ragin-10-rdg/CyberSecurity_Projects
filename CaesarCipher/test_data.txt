@@ -1,0 +1,38 @@
+Caesar Cipher Test Messages
+===========================
+
+Test Message 1 (Simple):
+Original: "Hello World!"
+Shift 3: "Khoor Zruog!"
+Shift 13: "Uryyb Jbeyq!"
+
+Test Message 2 (Mixed Case):
+Original: "The Quick Brown Fox Jumps Over The Lazy Dog"
+Shift 5: "Ymj Vznhp Gwtbs Ktc Ozrux Tajw Ymj Qfed Itl"
+
+Test Message 3 (With Numbers and Symbols):
+Original: "Password123! @#$%"
+Shift 7: "Whzzdvyk123! @#$%"
+
+Test Message 4 (Long Text):
+Original: "This is a secret message that needs to be encrypted using the Caesar cipher technique for educational purposes."
+Shift 10: "Drsc sc k combod wocckqo drkd xoodc dy lo oxmbizdok ecsx dro Mkockb mszrob domrxsaeo pyb okekmkdsyxkv zebryzoc."
+
+Test Message 5 (All Uppercase):
+Original: "CLASSIFIED INFORMATION"
+Shift 15: "RXJHHZOZPO ZQOYBVJMZYX"
+
+Test Message 6 (All Lowercase):
+Original: "cybersecurity is important"
+Shift 8: "kgjozmokaxcg cm cwzybdyxd"
+
+Brute Force Test:
+Encrypted: "Wklv lv d whvw phvvdjh"
+(This is encrypted with shift 3, should decode to "This is a test message")
+
+Common Phrases for Testing:
+- "attack at dawn"
+- "meet me at midnight"  
+- "the eagle has landed"
+- "mission accomplished"
+- "abort mission now"

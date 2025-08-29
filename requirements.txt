@@ -1,0 +1,24 @@
+# Cybersecurity Tools Suite - Complete Dependencies
+# Install all required libraries for all 5 tools with: pip install -r requirements.txt
+
+# Image Encryption Tool Dependencies
+Pillow>=9.0.0           # Image processing library
+numpy>=1.21.0           # Array operations for image manipulation
+
+# Keylogger Tool Dependencies  
+pynput>=1.7.0           # Keyboard and mouse event monitoring
+
+# Packet Sniffer Tool Dependencies
+scapy>=2.4.0            # Advanced packet manipulation and analysis
+
+# Note: Caesar Cipher and Password Checker tools use only Python standard library
+# No additional dependencies required for those tools
+
+# Alternative installation commands if pip install -r requirements.txt fails:
+# pip install Pillow numpy pynput scapy
+# 
+# Or install individually:
+# pip install Pillow
+# pip install numpy  
+# pip install pynput
+# pip install scapy

@@ -1,0 +1,2 @@
+python PasswordChecker/password_checker.py
+pause
