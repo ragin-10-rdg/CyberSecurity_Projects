@@ -424,18 +424,21 @@ def launch_command_line_dashboard():
             print("❌ Invalid choice")
 
 def create_batch_files():
-    """Create batch files for launching tools from HTML dashboard."""
-    batch_commands = {
-        'launch_caesar.bat': 'python CaesarCipher/caesar_cipher.py\npause',
-        'launch_password.bat': 'python PasswordChecker/password_checker.py\npause',
-        'launch_image.bat': 'python ImageEncryption/image_encryption.py\npause',
-        'launch_keylogger.bat': 'python Keylogger/keylogger.py\npause',
-        'launch_packet.bat': 'python PacketSniffer/packet_sniffer.py\npause',
-        'launch_demo.bat': 'python run_all_demos.py\npause'
+    """Create batch files for easy tool launching."""
+    # Ensure scripts directory exists
+    os.makedirs('scripts', exist_ok=True)
+    
+    batch_files = {
+        'scripts/launch_caesar.bat': 'cd /d "%~dp0.." && python CaesarCipher/caesar_cipher.py\npause',
+        'scripts/launch_password.bat': 'cd /d "%~dp0.." && python PasswordChecker/password_checker.py\npause',
+        'scripts/launch_image.bat': 'cd /d "%~dp0.." && python ImageEncryption/image_encryption.py\npause',
+        'scripts/launch_keylogger.bat': 'cd /d "%~dp0.." && python Keylogger/keylogger.py\npause',
+        'scripts/launch_packet.bat': 'cd /d "%~dp0.." && python PacketSniffer/packet_sniffer.py\npause',
+        'scripts/launch_demo.bat': 'cd /d "%~dp0.." && python run_all_demos.py\npause'
     }
     
     created_files = []
-    for filename, content in batch_commands.items():
+    for filename, content in batch_files.items():
         try:
             with open(filename, 'w') as f:
                 f.write(content)
@@ -456,22 +459,23 @@ def main():
         print(f"✅ Created {len(batch_files)} launcher batch files")
     
     # Create HTML dashboard with fallback locations
-    html_content = create_html_dashboard()
-    html_files = ['cybersecurity_dashboard.html', 'dashboard.html', 'temp_dashboard.html']
-    html_file = None
+    # Ensure assets directory exists
+    os.makedirs('assets', exist_ok=True)
     
-    for filename in html_files:
+    # Try multiple filenames if permission denied
+    html_files = ['assets/cybersecurity_dashboard.html', 'assets/dashboard.html', 'assets/tools_dashboard.html']
+    
+    for html_file in html_files:
         try:
-            with open(filename, 'w', encoding='utf-8') as f:
-                f.write(html_content)
-            html_file = filename
+            with open(html_file, 'w', encoding='utf-8') as f:
+                f.write(create_html_dashboard())
             print(f"✅ HTML dashboard created: {html_file}")
             break
         except PermissionError:
-            print(f"⚠️ Permission denied for {filename}, trying alternative...")
+            print(f"⚠️ Permission denied for {html_file}, trying alternative...")
             continue
         except Exception as e:
-            print(f"⚠️ Error with {filename}: {e}, trying alternative...")
+            print(f"⚠️ Error with {html_file}: {e}")
             continue
     
     if not html_file:
